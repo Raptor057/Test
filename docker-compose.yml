@@ -1,0 +1,8 @@
+services:
+  materialloading-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"  # Puedes cambiar el puerto externo si necesitas
+    restart: unless-stopped
