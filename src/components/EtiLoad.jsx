@@ -94,7 +94,7 @@ const EtiLoad = ({
   }
 
   return (
-    <div className="bg-white/10 text-white rounded p-4 shadow space-y-4 max-w-3xl mx-auto">
+    <div className="w-full max-w-full bg-white/10 text-white rounded p-4 shadow">
       <div>
         <label className="block text-sm font-medium mb-1">ETI No.</label>
         <form onSubmit={handleOnEtiNoSubmit}>
@@ -102,7 +102,7 @@ const EtiLoad = ({
             type="text"
             placeholder="ETI No."
             ref={etiNoRef}
-            className="w-full p-2 rounded bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full max-w-full p-1 rounded bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </form>
       </div>
@@ -112,7 +112,7 @@ const EtiLoad = ({
       </div>
 
       <div>
-        <div className={`w-full text-center py-2 rounded font-semibold ${statusColor}`}>
+        <div className={`w-full max-w-full text-center py-2 rounded font-semibold ${statusColor}`}>
           {etiInfo.status || 'OK'}
         </div>
       </div>

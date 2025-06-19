@@ -165,39 +165,59 @@ function App() {
   }, [])
 
   return (
-    <>
-      <ErrorOverlay />
-      <div>
-        <LineSearch lineFilterRef={lineFilterRef} onLineChanged={handleOnLineChanged} />
-        <PartSelection
+<>
+  <ErrorOverlay />
+  <div className="h-screen bg-slate-900 text-white flex flex-col">
+    {/* Header */}
+    <header className="px-6 py-4 bg-slate-900 text-orange-400 text-2xl font-bold border-b border-white/10">
+    Carga de Materiales
+    </header>
+
+    {/* Contenido principal en 3 columnas */}
+    <main className="flex flex-1 overflow-hidden">
+      {/* Columna 1 */}
+<section className="h-full w-full md:w-1/4 p-4 overflow-y-auto overflow-x-hidden flex flex-col gap-1 bg-white/5 border-r border-white/10">
+  <LineSearch lineFilterRef={lineFilterRef} onLineChanged={handleOnLineChanged} />
+  <PartSelection
+    line={state.line}
+    selectedWorkOrderCode={state.workOrder.code}
+    onWorkOrderChanged={handleOnWorkOrderChanged}
+  />
+  <EtiLoad
+    etiNoRef={etiNoRef}
+    pointOfUseRef={pointOfUseRef}
+    selectedLineCode={state.line.code}
+    selectedPartNo={state.workOrder.partNo}
+    selectedWorkOrderCode={state.workOrder.code}
+    onEtiAdded={handleOnEtiAdded}
+  />
+</section>
+
+
+      {/* Columna 2 */}
+      <section className="w-full max-w-full md:w-1/3 p-4 overflow-y-auto bg-white/5 border-r border-white/10">
+        <GamaState
+          gamaState={state.gamaState}
+          lineCode={state.line.code}
+          partNo={state.workOrder.partNo}
+          onGamaItemSelected={handleOnGamaItemSelected}
+          onGamaState={handleGamaState}
+          activeItem={state.gamaItem}
+        />
+      </section>
+
+      {/* Columna 3 */}
+      <section className="w-full md:w-1/3 p-4 overflow-y-auto bg-white/5">
+        <LoadedEtis
           line={state.line}
-          selectedWorkOrderCode={state.workOrder.code}
-          onWorkOrderChanged={handleOnWorkOrderChanged}
+          gamaItem={state.gamaItem}
+          onEtiRemoved={handleOnEtiRemoved}
         />
-        <hr />
-        <EtiLoad
-          etiNoRef={etiNoRef}
-          pointOfUseRef={pointOfUseRef}
-          selectedLineCode={state.line.code}
-          selectedPartNo={state.workOrder.partNo}
-          selectedWorkOrderCode={state.workOrder.code}
-          onEtiAdded={handleOnEtiAdded}
-        />
-      </div>
-      <GamaState
-        gamaState={state.gamaState}
-        lineCode={state.line.code}
-        partNo={state.workOrder.partNo}
-        onGamaItemSelected={handleOnGamaItemSelected}
-        onGamaState={handleGamaState}
-        activeItem={state.gamaItem}
-      />
-      <LoadedEtis
-        line={state.line}
-        gamaItem={state.gamaItem}
-        onEtiRemoved={handleOnEtiRemoved}
-      />
-    </>
+      </section>
+    </main>
+  </div>
+</>
+
   )
 }
 

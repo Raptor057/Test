@@ -21,9 +21,9 @@ const PartSelection = ({ line, selectedWorkOrderCode, onWorkOrderChanged }) => {
   }, [line])
 
   return (
-    <div className="bg-white/10 text-white rounded p-4 shadow max-w-3xl mx-auto mt-6">
+    <div className="w-full max-w-full bg-white/10 text-white rounded p-4 shadow">
       <h3 className="text-lg font-semibold mb-4">Información de la Orden de Trabajo</h3>
-      <table className="w-full table-fixed border-separate border-spacing-y-2">
+      <table className="w-full max-w-full table-fixed border-separate border-spacing-y-2">
         <tbody>
           <tr>
             <td className="w-32 font-medium">Línea</td>
@@ -38,7 +38,7 @@ const PartSelection = ({ line, selectedWorkOrderCode, onWorkOrderChanged }) => {
                   const workOrder = workOrders.find((w) => w.code === e.target.value)
                   onWorkOrderChanged(workOrder)
                 }}
-                className="w-full bg-white text-black px-3 py-2 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full max-w-full bg-white text-black px-3 py-2 rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {partNumbers.map((item, idx) => (
                   <option key={idx} value={item.code}>

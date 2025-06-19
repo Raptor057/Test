@@ -23,14 +23,14 @@ const LineSearch = ({ onLineChanged, lineFilterRef }) => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit} className="max-w-xl mx-auto my-6 p-4 bg-white/10 rounded shadow">
-      <label className="block mb-2 text-sm font-medium text-white">Código de Túnel</label>
+    <form onSubmit={handleOnSubmit} className="w-full max-w-full p-5 bg-white/10 rounded shadow">
+      <label className="block mb-1 text-sm font-medium text-white">Código de Túnel</label>
       <input
         type="text"
         ref={lineFilterRef}
         placeholder="Ej: TNL-01"
         autoFocus
-        className="w-full px-4 py-2 text-lg text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full max-w-full px-1 py-1 text-lg text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <p className="mt-2 text-sm text-white/80">
         Ingresar el código de túnel para seleccionar la línea.

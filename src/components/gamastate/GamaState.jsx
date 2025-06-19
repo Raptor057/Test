@@ -12,16 +12,25 @@ const GamaState = ({
 }) => {
   const [hideFullPointsOfUse, setHideFullPointsOfUse] = useState(true)
 
-  useEffect(() => {
-    const fetchGama = async () => {
-      if (partNo && lineCode) {
-        commonApi.getLineMaterialStatus(lineCode, partNo, onGamaState, alert)
-      } else {
-        onGamaState([])
-      }
+useEffect(() => {
+  let ignore = false
+  const fetchGama = async () => {
+    if (partNo && lineCode && !ignore) {
+      commonApi.getLineMaterialStatus(lineCode, partNo, (data) => {
+        if (!ignore) {
+          onGamaState(data)
+        }
+      }, alert)
+    } else {
+      onGamaState([])
     }
-    fetchGama()
-  }, [partNo, lineCode, onGamaState])
+  }
+  fetchGama()
+  return () => {
+    ignore = true
+  }
+}, [partNo, lineCode])
+
 
   const handleOnClick = () => {
     if (partNo && lineCode) {
@@ -61,7 +70,7 @@ const GamaState = ({
       </label>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left table-auto border-separate border-spacing-y-2">
+        <table className="w-full max-w-full text-sm text-left table-auto border-separate border-spacing-y-2">
           <thead>
             <tr className="text-white/80 border-b border-white/20">
               <th className="px-4 py-2">Túnel</th>
