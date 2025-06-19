@@ -1,0 +1,168 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #1e293b;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body, input, select {
+    font-family: 'Calibri','Segoe UI';
+    font-size: 1.75vw;
+}
+
+    input:focus, select:focus {
+        color: blue;
+        background-color: lightblue;
+    }
+
+#app {
+    color: white;
+    display: flex;
+    padding: 15px;
+    gap: 5px;
+    position: absolute;
+    top: 1em;
+    bottom: 0em;
+    width: 100%;
+}
+
+    #app > div {
+        background: #ffffff22;
+        border: 0 none transparent;
+        border-radius: 0.25em;
+        padding: 0.4em;
+        flex-grow: 1;
+        flex: 1 1 0px;
+        overflow-y: auto;
+    }
+
+.full {
+    background-color: #effaf5;
+    color: #257953;
+}
+
+    .full.active {
+        background-color: #48c78e;
+        color: white;
+    }
+
+.empty {
+    background-color: #feecf0;
+    color: #cc0f35;
+}
+
+    .empty.active {
+        background-color: #f14668;
+        color: white;
+    }
+
+.over {
+    background-color: #fffaeb;
+    color: #946c00;
+}
+
+    .over.active {
+        background-color: #ffe08a;
+        color: #333;
+    }
+
+.partial {
+    background-color: #eff5fb;
+    color: #296fa8;
+}
+
+    .partial.active {
+        background-color: #3e8ed0;
+        color: white;
+    }
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+    table > tbody > tr > td {
+        border-bottom: 1px solid white;
+        padding: 0.25em;
+    }
+
+.unload-eti-button {
+    color: white;
+    border: 1px solid white;
+    background-color: red;
+    float: right;
+    border-radius: 0.1em;
+}
+
+#title-bar {
+    background-color: #002035;
+    color: #FF5500;
+    background-image: url("../img/LOGO-GT2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 1.5em !important;
+    font-weight: bold;
+}
+
+table#gama-state {
+    text-align: left;
+}
+
+    table#gama-state th:nth-child(3), table#gama-state td:nth-child(3) {
+        text-align: center;
+    }
+
+    table#gama-state tbody tr:not(.active):hover td {
+        background-color: white;
+        cursor: pointer;
+    }
+
+    table#gama-state button#update-gama-state-button {
+        cursor: pointer;
+        padding: 0.5em;
+        border: 0;
+        /*vertical-align: text-bottom;*/
+        color: white;
+        background-color: green;
+        border-radius: 0.25em;
+        float: right;
+    }
+    table#gama-state button#update-gama-button {
+        cursor: pointer;
+        padding: 0.5em;
+        border: 0;
+        /*vertical-align: text-bottom;*/
+        color: white;
+        background-color: orange;
+        border-radius: 0.25em;
+        float: right;
+    }
+
+/*These 3 color designs are used to color the charge indicator box*/
+.cuadrado {
+    width: 300px;
+    height: 30px;
+    border-radius: 0.25em;
+    background-color: deepskyblue;
+    color: black;
+}
+
+.cuadradoOK {
+    width: 300px;
+    height: 30px;
+    border-radius: 0.25em;
+    background-color: green;
+    color: black;
+}
+
+.cuadradoFAIL {
+    width: 300px;
+    height: 30px;
+    border-radius: 0.25em;
+    background-color: red;
+    color: black;
+}
